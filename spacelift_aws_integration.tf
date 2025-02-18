@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    spacelift = {
+      source  = "spacelift-io/spacelift"
+      version = "1.20.0"
+    }
+  }
+}
+
 provider "spacelift" {
   api_token = var.spacelift_api_token
 }
@@ -18,7 +27,6 @@ resource "spacelift_aws_integration" "aws_account1" {
   role_arn    = "arn:aws:iam::${data.spacelift_environment_variable.account_id.value}:role/Spacelift"
   external_id = "spacelift-external-id"
 }
-
 
 resource "spacelift_aws_integration" "aws_account" {
   name        = "AWS Account ${var.account_id}"
