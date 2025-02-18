@@ -11,6 +11,12 @@ provider "spacelift" {
   api_token = var.spacelift_api_token
 }
 
+variable "spacelift_api_token" {
+  description = "API token for Spacelift"
+  type        = string
+  sensitive   = true
+}
+
 data "spacelift_environment_variable" "account_id" {
   stack_id = "your-spacelift-stack-id"
   name     = "ACCOUNT_ID"
