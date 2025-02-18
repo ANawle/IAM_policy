@@ -3,8 +3,7 @@ provider "spacelift" {
 }
 
 variable "account_id" {
-  description = "AWS Account ID"
-  type        = string
+  default = lookup(var.env, "ACCOUNT_ID", "")
 }
 
 resource "spacelift_aws_integration" "aws_account" {
