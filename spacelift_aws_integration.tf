@@ -13,7 +13,7 @@ variable "account_id" {
   default     = ""
 }
 
-resource "spacelift_aws_integration" "aws_account" {
+resource "spacelift_aws_integration" "aws_account1" {
   name        = "AWS Account ${data.spacelift_environment_variable.account_id.value}"
   role_arn    = "arn:aws:iam::${data.spacelift_environment_variable.account_id.value}:role/Spacelift"
   external_id = "spacelift-external-id"
